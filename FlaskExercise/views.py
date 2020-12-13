@@ -7,10 +7,11 @@ def home():
     log = request.values.get('log_button')
     # TODO: Appropriately log the different button presses
     #   with the appropriate log level.
-    if log=="info": app.logger.info('%s logged value', log)
-    if log=="warning": app.logger.warning('%s logged value', log)
-    if log=="error": app.logger.error('%s logged value', log)
-    if log=="critical": app.logger.critical('%s logged value', log)
+    if log:
+        if log == 'info': app.logger.info('No issue.')
+        elif log == 'warning': app.logger.warning('Warning occurred.')
+        elif log == 'error': app.logger.error('Error occurred.')
+        elif log == 'critical': app.logger.critical('Critical error occurred.')
 
     return render_template(
         'index.html',
